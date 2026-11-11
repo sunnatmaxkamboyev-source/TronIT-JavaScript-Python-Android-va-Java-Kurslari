@@ -9,8 +9,9 @@ import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
 import StudentDashboard from "./student/StudentDashboard";
-
-
+import StudentCourses from "./student/StudentCourses";
+import StudentProgress from "./student/StudentProgress";
+import StudentProfile from "./student/StudentProfile";
 
 function NotFound() {
   return (
@@ -39,7 +40,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/student/dashboard" element={<StudentDashboard />} />
+        <Route path="/student" element={<StudentDashboard />} />
+        <Route path="/student/courses" element={<StudentCourses />} />
+        <Route path="/student/progress" element={<StudentProgress />} />
+        <Route path="/student/profile" element={<StudentProfile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
