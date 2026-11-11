@@ -7,6 +7,7 @@ import CourseDetail from "./pages/CourseDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
+import ForgotPassword from "./pages/ForgotPassword";
 function NotFound() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center text-center px-6">
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -7,9 +7,11 @@ import {
   Lock,
   Eye,
   EyeOff,
-  ArrowRight,
+  GraduationCap,
 } from "lucide-react";
-import AuthLayout from "../components/AuthLayout";
+
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,14 +26,7 @@ function Register() {
 
   const [message, setMessage] = useState("");
 
-  function handleChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (form.password.length < 8) {
@@ -40,113 +35,167 @@ function Register() {
     }
 
     if (form.password !== form.confirmPassword) {
-      setMessage("Parollar bir-biriga mos kelmayapti.");
+      setMessage("Parollar bir-biriga mos kelmaydi.");
       return;
     }
 
     setMessage("Ro'yxatdan o'tish tizimi hali backendga ulanmagan.");
-  }
+  };
 
   return (
-    <AuthLayout
-      type="register"
-      title="Yangi hisob yarating"
-      description="TronIT platformasiga qo'shiling va o'rganishni boshlang."
-    >
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <div className="auth-field">
-          <label htmlFor="register-name">Ism va familiya</label>
-          <div className="auth-input-wrapper">
-            <User size={19} />
-            <input
-              id="register-name"
-              name="name"
-              type="text"
-              placeholder="Ism Familiya"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
+    <>
+      <Navbar />
 
-        <div className="auth-field">
-          <label htmlFor="register-email">Email manzil</label>
-          <div className="auth-input-wrapper">
-            <Mail size={19} />
-            <input
-              id="register-email"
-              name="email"
-              type="email"
-              placeholder="example@gmail.com"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
+      <main className="min-h-[75vh] bg-gray-50 flex items-center justify-center px-6 py-16">
+        <div className="w-full max-w-md bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-gray-100 border border-gray-100">
 
-        <div className="auth-field">
-          <label htmlFor="register-password">Parol</label>
-          <div className="auth-input-wrapper">
-            <Lock size={19} />
-            <input
-              id="register-password"
-              name="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Kamida 8 ta belgi"
-              value={form.password}
-              onChange={handleChange}
-              required
-            />
+          <div className="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mx-auto">
+            <GraduationCap size={30} className="text-white" />
+          </div>
+
+          <h1 className="text-3xl font-bold text-gray-900 text-center mt-6">
+            Hisob yaratish
+          </h1>
+
+          <p className="text-gray-500 text-sm text-center mt-2">
+            TronIT bilan o'rganishni boshlang
+          </p>
+
+          {message && (
+            <div className="bg-green-50 text-green-700 p-3 rounded-xl text-sm mt-6">
+              {message}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Ismingiz
+              </label>
+
+              <div className="relative">
+                <User size={19} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+
+                <input
+                  type="text"
+                  required
+                  placeholder="Ismingizni kiriting"
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm({ ...form, name: e.target.value })
+                  }
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl outline-none focus:border-green-500 focus:ring-4 focus:ring-green-50 transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Email
+              </label>
+
+              <div className="relative">
+                <Mail size={19} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+
+                <input
+                  type="email"
+                  required
+                  placeholder="example@gmail.com"
+                  value={form.email}
+                  onChange={(e) =>
+                    setForm({ ...form, email: e.target.value })
+                  }
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl outline-none focus:border-green-500 focus:ring-4 focus:ring-green-50 transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Parol
+              </label>
+
+              <div className="relative">
+                <Lock size={19} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  minLength={8}
+                  placeholder="Kamida 8 ta belgi"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
+                  className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-xl outline-none focus:border-green-500 focus:ring-4 focus:ring-green-50 transition"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  aria-label="Parolni ko'rsatish"
+                >
+                  {showPassword ? <EyeOff size={19} /> : <Eye size={19} />}
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Parolni tasdiqlang
+              </label>
+
+              <div className="relative">
+                <Lock size={19} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+
+                <input
+                  type={showConfirm ? "text" : "password"}
+                  required
+                  placeholder="Parolni qayta kiriting"
+                  value={form.confirmPassword}
+                  onChange={(e) =>
+                    setForm({ ...form, confirmPassword: e.target.value })
+                  }
+                  className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-xl outline-none focus:border-green-500 focus:ring-4 focus:ring-green-50 transition"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  aria-label="Tasdiqlash parolini ko'rsatish"
+                >
+                  {showConfirm ? <EyeOff size={19} /> : <Eye size={19} />}
+                </button>
+              </div>
+            </div>
+
             <button
-              type="button"
-              className="auth-eye-button"
-              onClick={() => setShowPassword(!showPassword)}
-              aria-label="Parolni ko'rsatish"
+              type="submit"
+              className="w-full bg-green-500 hover:bg-green-600 text-white py-3.5 rounded-xl font-semibold transition"
             >
-              {showPassword ? <EyeOff size={19} /> : <Eye size={19} />}
+              Ro'yxatdan o'tish
             </button>
-          </div>
+          </form>
+
+          <p className="text-sm text-gray-500 text-center mt-7">
+            Hisobingiz bormi?{" "}
+            <Link to="/login" className="text-green-600 font-semibold hover:text-green-700">
+              Kirish
+            </Link>
+          </p>
+
+          <p className="text-sm text-center mt-3">
+            <Link to="/forgot-password" className="text-green-600 font-semibold hover:text-green-700">
+              Parolni unutdingizmi?
+            </Link>
+          </p>
         </div>
+      </main>
 
-        <div className="auth-field">
-          <label htmlFor="register-confirm">Parolni tasdiqlang</label>
-          <div className="auth-input-wrapper">
-            <Lock size={19} />
-            <input
-              id="register-confirm"
-              name="confirmPassword"
-              type={showConfirm ? "text" : "password"}
-              placeholder="Parolni qayta kiriting"
-              value={form.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-            <button
-              type="button"
-              className="auth-eye-button"
-              onClick={() => setShowConfirm(!showConfirm)}
-              aria-label="Tasdiqlash parolini ko'rsatish"
-            >
-              {showConfirm ? <EyeOff size={19} /> : <Eye size={19} />}
-            </button>
-          </div>
-        </div>
-
-        {message && <p className="auth-message">{message}</p>}
-
-        <button type="submit" className="auth-submit">
-          Hisob yaratish
-          <ArrowRight size={19} />
-        </button>
-
-        <div className="auth-switch">
-          Hisobingiz bormi?
-          <Link to="/login">Kirish</Link>
-        </div>
-      </form>
-    </AuthLayout>
+      <Footer />
+    </>
   );
 }
 
