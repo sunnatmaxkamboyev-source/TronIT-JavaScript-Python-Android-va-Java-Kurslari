@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { PlayCircle, BookOpen, ArrowRight } from "lucide-react";
 
@@ -69,74 +70,73 @@ const courses = [
 
 function FeaturedCourses() {
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-white py-20 transition-colors duration-300 dark:bg-gray-950">
+      <div className="mx-auto max-w-7xl px-6">
 
-        
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10">
+        {/* Section heading */}
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
-            <p className="text-green-600 font-semibold text-sm mb-3">
+            <p className="mb-3 text-sm font-semibold text-green-600">
               BIZNING KURSLAR
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
               Mashhur IT kurslar
             </h2>
 
-            <p className="text-gray-500 mt-3">
+            <p className="mt-3 text-gray-500 dark:text-gray-400">
               O'zingizga mos kursni tanlang va o'rganishni boshlang.
             </p>
           </div>
 
-          <div className="text-sm text-gray-500">
+          <div className="text-sm text-gray-500 dark:text-gray-400">
             Jami {courses.length} ta kurs
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
+        {/* Course cards */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
             <div
               key={course.id}
-              className="group border border-gray-100 rounded-2xl p-6 hover:border-green-300 hover:shadow-lg transition duration-300"
+              className="group rounded-2xl border border-gray-100 bg-white p-6 transition duration-300 hover:border-green-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-green-700"
             >
-              
-              <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5">
-                <BookOpen size={27} className="text-green-600" />
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-green-50 dark:bg-green-950/40">
+                <BookOpen
+                  size={27}
+                  className="text-green-600 dark:text-green-400"
+                />
               </div>
 
-       
-              <span className="text-xs font-medium text-green-600 bg-green-50 px-3 py-1.5 rounded-full">
+              <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-600 dark:bg-green-950/40 dark:text-green-400">
                 {course.category}
               </span>
 
-             
-              <h3 className="text-xl font-bold text-gray-900 mt-5">
+              <h3 className="mt-5 text-xl font-bold text-gray-900 dark:text-white">
                 {course.title}
               </h3>
 
-              
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 Muallif: {course.author}
               </p>
 
-              
-              <div className="flex items-center gap-2 text-gray-500 text-sm mt-5">
-                <PlayCircle size={18} className="text-green-600" />
+              <div className="mt-5 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                <PlayCircle
+                  size={18}
+                  className="text-green-600 dark:text-green-400"
+                />
                 {course.lessons} ta video dars
               </div>
 
-             
               <Link
                 to={`/courses/${course.id}`}
-                className="mt-6 flex items-center justify-center gap-2 w-full border border-green-500 text-green-600 hover:bg-green-500 hover:text-white py-3 rounded-xl font-semibold transition"
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border border-green-500 py-3 font-semibold text-green-600 transition hover:bg-green-500 hover:text-white dark:text-green-400"
               >
                 Kursni ko'rish
                 <ArrowRight size={18} />
               </Link>
             </div>
           ))}
-
         </div>
 
       </div>

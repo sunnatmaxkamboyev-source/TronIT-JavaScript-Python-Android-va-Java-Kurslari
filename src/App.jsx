@@ -12,6 +12,7 @@ import StudentDashboard from "./student/StudentDashboard";
 import StudentCourses from "./student/StudentCourses";
 import StudentProgress from "./student/StudentProgress";
 import StudentProfile from "./student/StudentProfile";
+import StudentSettings from "./student/StudentSettings";
 
 function NotFound() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/student/courses" element={<StudentCourses />} />
         <Route path="/student/progress" element={<StudentProgress />} />
         <Route path="/student/profile" element={<StudentProfile />} />
+        <Route path="/student/settings" element={<StudentSettings />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

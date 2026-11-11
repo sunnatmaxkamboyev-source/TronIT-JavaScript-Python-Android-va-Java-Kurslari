@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #ffffff;
+  color: #111827;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
