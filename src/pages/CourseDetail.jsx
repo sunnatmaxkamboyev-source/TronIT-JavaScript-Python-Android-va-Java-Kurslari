@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -57,7 +56,6 @@ function CourseDetail() {
       <Navbar />
 
       <main className="bg-gray-50 min-h-screen">
-        {/* Course header */}
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-6 py-10">
             <Link
@@ -103,11 +101,11 @@ function CourseDetail() {
           </div>
         </section>
 
-        {/* Lesson area */}
+      
         <section className="max-w-7xl mx-auto px-6 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-            {/* Video player */}
+            
             <div className="lg:col-span-2">
               <div className="bg-gray-950 rounded-2xl overflow-hidden aspect-video flex flex-col items-center justify-center text-center p-8">
                 {currentLesson?.videoUrl ? (
@@ -155,7 +153,7 @@ function CourseDetail() {
               </div>
             </div>
 
-            {/* Lesson list */}
+          
             <aside className="bg-white rounded-2xl border border-gray-100 overflow-hidden h-fit">
               <div className="p-5 border-b border-gray-100">
                 <h2 className="text-lg font-bold text-gray-900">

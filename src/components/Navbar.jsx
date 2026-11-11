@@ -27,7 +27,7 @@ const navLinks = [
           </span>
         </Link>
 
-        {/* Desktop navigation */}
+        
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <NavLink

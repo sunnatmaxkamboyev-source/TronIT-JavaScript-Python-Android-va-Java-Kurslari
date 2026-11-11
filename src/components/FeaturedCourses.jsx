@@ -72,7 +72,7 @@ function FeaturedCourses() {
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Header */}
+        
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10">
           <div>
             <p className="text-green-600 font-semibold text-sm mb-3">
@@ -93,7 +93,6 @@ function FeaturedCourses() {
           </div>
         </div>
 
-        {/* Courses */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {courses.map((course) => (
@@ -101,33 +100,33 @@ function FeaturedCourses() {
               key={course.id}
               className="group border border-gray-100 rounded-2xl p-6 hover:border-green-300 hover:shadow-lg transition duration-300"
             >
-              {/* Course icon */}
+              
               <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5">
                 <BookOpen size={27} className="text-green-600" />
               </div>
 
-              {/* Category */}
+       
               <span className="text-xs font-medium text-green-600 bg-green-50 px-3 py-1.5 rounded-full">
                 {course.category}
               </span>
 
-              {/* Course title */}
+             
               <h3 className="text-xl font-bold text-gray-900 mt-5">
                 {course.title}
               </h3>
 
-              {/* Author */}
+              
               <p className="text-sm text-gray-500 mt-2">
                 Muallif: {course.author}
               </p>
 
-              {/* Lessons */}
+              
               <div className="flex items-center gap-2 text-gray-500 text-sm mt-5">
                 <PlayCircle size={18} className="text-green-600" />
                 {course.lessons} ta video dars
               </div>
 
-              {/* Button */}
+             
               <Link
                 to={`/courses/${course.id}`}
                 className="mt-6 flex items-center justify-center gap-2 w-full border border-green-500 text-green-600 hover:bg-green-500 hover:text-white py-3 rounded-xl font-semibold transition"

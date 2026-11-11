@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Code2 } from "lucide-react";
 
@@ -9,7 +8,7 @@ function Hero() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT SIDE */}
+          
           <div>
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -46,7 +45,7 @@ function Hero() {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
+         
           <div className="relative">
             <div className="bg-green-50 rounded-3xl p-10 min-h-[380px] flex items-center justify-center">
 

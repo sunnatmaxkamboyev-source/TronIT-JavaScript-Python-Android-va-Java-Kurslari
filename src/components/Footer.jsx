@@ -33,7 +33,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* Brand */}
+         
           <div>
             <Link to="/" className="flex items-center gap-3 w-fit">
               <div className="w-11 h-11 bg-green-500 rounded-xl flex items-center justify-center">
@@ -51,7 +51,7 @@ function Footer() {
               yaratish uchun onlayn ta'lim platformasi.
             </p>
 
-            {/* Social links */}
+           
             <div className="flex items-center gap-3 mt-6">
               <a
                 href={telegram}
@@ -81,7 +81,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Pages */}
+          
           <div>
             <h3 className="text-lg font-bold mb-6">
               Sahifalar
@@ -101,7 +101,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Categories */}
+      
           <div>
             <h3 className="text-lg font-bold mb-6">
               Yo'nalishlar
@@ -121,7 +121,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+         
           <div>
             <h3 className="text-lg font-bold mb-6">
               Aloqa
@@ -171,7 +171,7 @@ function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+       
         <div className="border-t border-gray-800 mt-14 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm text-center">
             © {new Date().getFullYear()} TronIT. Barcha huquqlar himoyalangan.
