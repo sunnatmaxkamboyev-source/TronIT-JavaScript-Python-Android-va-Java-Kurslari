@@ -61,7 +61,10 @@ function StudentSidebar({ isOpen, setIsOpen }) {
           fixed left-0 top-0 z-50
           flex h-screen w-72 flex-col
           border-r border-gray-100 bg-white
-          transition-transform duration-300
+          transition-colors duration-300
+          dark:border-gray-800 dark:bg-gray-900
+          transition-transform
+          duration-300
           ${
             isOpen
               ? "translate-x-0"
@@ -70,7 +73,7 @@ function StudentSidebar({ isOpen, setIsOpen }) {
         `}
       >
         {/* Logo */}
-        <div className="flex h-20 shrink-0 items-center justify-between border-b border-gray-100 px-7">
+        <div className="flex h-20 shrink-0 items-center justify-between border-b border-gray-100 px-7 dark:border-gray-800">
           <NavLink
             to="/"
             onClick={() => setIsOpen(false)}
@@ -80,14 +83,14 @@ function StudentSidebar({ isOpen, setIsOpen }) {
               <GraduationCap size={24} className="text-white" />
             </div>
 
-            <span className="text-2xl font-bold text-gray-900">
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">
               Tron<span className="text-green-500">IT</span>
             </span>
           </NavLink>
 
           <button
             onClick={() => setIsOpen(false)}
-            className="text-gray-500 hover:text-gray-900 lg:hidden"
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white lg:hidden"
             aria-label="Menyuni yopish"
           >
             <X size={22} />
@@ -96,16 +99,16 @@ function StudentSidebar({ isOpen, setIsOpen }) {
 
         {/* User */}
         <div className="shrink-0 p-6">
-          <div className="flex items-center gap-3 rounded-2xl bg-green-50 p-4">
+          <div className="flex items-center gap-3 rounded-2xl bg-green-50 p-4 dark:bg-green-950/30">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green-500 font-bold text-white">
               S
             </div>
 
             <div className="min-w-0">
-              <h3 className="truncate font-semibold text-gray-900">
+              <h3 className="truncate font-semibold text-gray-900 dark:text-white">
                 Student User
               </h3>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 O'quvchi
               </p>
             </div>
@@ -131,8 +134,8 @@ function StudentSidebar({ isOpen, setIsOpen }) {
                   className={({ isActive }) =>
                     `flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition ${
                       isActive
-                        ? "bg-green-500 text-white shadow-lg shadow-green-100"
-                        : "text-gray-500 hover:bg-green-50 hover:text-green-600"
+                        ? "bg-green-500 text-white shadow-lg shadow-green-100 dark:shadow-none"
+                        : "text-gray-500 hover:bg-green-50 hover:text-green-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-green-400"
                     }`
                   }
                 >
@@ -145,10 +148,10 @@ function StudentSidebar({ isOpen, setIsOpen }) {
         </div>
 
         {/* Logout */}
-        <div className="shrink-0 border-t border-gray-100 p-4">
+        <div className="shrink-0 border-t border-gray-100 p-4 dark:border-gray-800">
           <button
             onClick={handleLogout}
-            className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-500 transition hover:bg-red-50"
+            className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-500 transition hover:bg-red-50 dark:hover:bg-red-950/30"
           >
             <LogOut size={19} />
             Chiqish

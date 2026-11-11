@@ -1,7 +1,5 @@
-
 import { useState } from "react";
 import {
-  BookOpen,
   TrendingUp,
   Clock3,
   Award,
@@ -102,33 +100,33 @@ function StudentProgress() {
       value: `${progress}%`,
       description: "Barcha kurslar bo‘yicha",
       icon: TrendingUp,
-      style: "bg-green-50 text-green-600",
+      style: "bg-green-50 text-green-600 dark:bg-green-950/40 dark:text-green-400",
     },
     {
       title: "Tugatilgan darslar",
       value: completedLessons,
       description: `${totalLessons} ta darsdan`,
       icon: CheckCircle2,
-      style: "bg-blue-50 text-blue-600",
+      style: "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400",
     },
     {
       title: "O‘qish vaqti",
       value: `${totalHours} soat`,
       description: "Oxirgi 7 kun ichida",
       icon: Clock3,
-      style: "bg-purple-50 text-purple-600",
+      style: "bg-purple-50 text-purple-600 dark:bg-purple-950/40 dark:text-purple-400",
     },
     {
       title: "Tugatilgan kurslar",
       value: completedCourses,
       description: `${courses.length} ta kursdan`,
       icon: Award,
-      style: "bg-orange-50 text-orange-600",
+      style: "bg-orange-50 text-orange-600 dark:bg-orange-950/40 dark:text-orange-400",
     },
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#f8faf9]">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#f8faf9] transition-colors duration-300 dark:bg-gray-950">
       <StudentSidebar
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -138,29 +136,29 @@ function StudentProgress() {
       <main className="min-h-screen w-full min-w-0 lg:ml-72 lg:w-[calc(100%-18rem)]">
 
         {/* Header */}
-        <header className="sticky top-0 z-30 flex min-h-[76px] w-full items-center justify-between gap-4 border-b border-gray-100 bg-white px-4 py-4 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-30 flex min-h-[76px] w-full items-center justify-between gap-4 border-b border-gray-100 bg-white px-4 py-4 transition-colors duration-300 sm:px-6 lg:px-8 dark:border-gray-800 dark:bg-gray-900">
           <div className="flex min-w-0 items-center gap-3">
             <button
               onClick={() => setIsOpen(true)}
-              className="shrink-0 rounded-xl border border-gray-200 p-2 text-gray-700 lg:hidden"
+              className="shrink-0 rounded-xl border border-gray-200 p-2 text-gray-700 dark:border-gray-700 dark:text-gray-300 lg:hidden"
               aria-label="Menyuni ochish"
             >
               <Menu size={21} />
             </button>
 
             <div className="min-w-0">
-              <h1 className="truncate text-lg font-bold text-gray-900 sm:text-xl">
+              <h1 className="truncate text-lg font-bold text-gray-900 sm:text-xl dark:text-white">
                 O‘qish jarayoni
               </h1>
-              <p className="hidden text-sm text-gray-500 sm:block">
+              <p className="hidden text-sm text-gray-500 sm:block dark:text-gray-400">
                 O‘z rivojlanishingizni kuzatib boring
               </p>
             </div>
           </div>
 
-          <div className="hidden shrink-0 items-center gap-2 rounded-xl bg-green-50 px-4 py-2 sm:flex">
+          <div className="hidden shrink-0 items-center gap-2 rounded-xl bg-green-50 px-4 py-2 dark:bg-green-950/40 sm:flex">
             <span className="h-2 w-2 rounded-full bg-green-500" />
-            <span className="text-sm font-medium text-green-700">
+            <span className="text-sm font-medium text-green-700 dark:text-green-400">
               Faol o‘quvchi
             </span>
           </div>
@@ -171,16 +169,16 @@ function StudentProgress() {
 
           {/* Title */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
               Sizning natijalaringiz
             </h2>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
               O‘qish jarayoningiz va erishgan natijalaringiz.
             </p>
           </section>
 
           {/* Main progress */}
-          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 p-6 text-white shadow-lg shadow-green-100 sm:p-8">
+          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 p-6 text-white shadow-lg shadow-green-100 dark:shadow-none sm:p-8">
             <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full border-[35px] border-white/10" />
 
             <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2">
@@ -233,24 +231,24 @@ function StudentProgress() {
               return (
                 <div
                   key={stat.title}
-                  className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 transition hover:shadow-md"
+                  className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900 dark:hover:shadow-black/20"
                 >
                   <div className="flex items-center justify-between">
                     <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${stat.style}`}>
                       <Icon size={22} />
                     </div>
-                    <ArrowUpRight size={19} className="text-gray-300" />
+                    <ArrowUpRight size={19} className="text-gray-300 dark:text-gray-600" />
                   </div>
 
-                  <p className="mt-5 text-sm text-gray-500">
+                  <p className="mt-5 text-sm text-gray-500 dark:text-gray-400">
                     {stat.title}
                   </p>
 
-                  <h3 className="mt-1 break-words text-2xl font-bold text-gray-900">
+                  <h3 className="mt-1 break-words text-2xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </h3>
 
-                  <p className="mt-1 text-xs text-gray-400">
+                  <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
                     {stat.description}
                   </p>
                 </div>
@@ -262,18 +260,18 @@ function StudentProgress() {
           <section className="grid min-w-0 grid-cols-1 gap-6 2xl:grid-cols-3">
 
             {/* Course progress */}
-            <div className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 2xl:col-span-2">
+            <div className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 2xl:col-span-2 dark:border-gray-800 dark:bg-gray-900">
               <div className="mb-7 flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-lg font-bold text-gray-900">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">
                     Kurslar bo‘yicha progress
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     Har bir kursdagi natijalaringiz
                   </p>
                 </div>
 
-                <span className="rounded-lg bg-green-50 px-3 py-2 text-xs font-semibold text-green-700">
+                <span className="rounded-lg bg-green-50 px-3 py-2 text-xs font-semibold text-green-700 dark:bg-green-950/40 dark:text-green-400">
                   {courses.length} ta kurs
                 </span>
               </div>
@@ -294,25 +292,25 @@ function StudentProgress() {
                         </div>
 
                         <div className="min-w-0 flex-1">
-                          <h3 className="truncate font-semibold text-gray-900">
+                          <h3 className="truncate font-semibold text-gray-900 dark:text-white">
                             {course.title}
                           </h3>
-                          <p className="truncate text-xs text-gray-500">
+                          <p className="truncate text-xs text-gray-500 dark:text-gray-400">
                             {course.category}
                           </p>
                         </div>
 
                         <div className="shrink-0 text-right">
-                          <p className="font-bold text-gray-900">
+                          <p className="font-bold text-gray-900 dark:text-white">
                             {percentage}%
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-400 dark:text-gray-500">
                             {course.completed}/{course.total}
                           </p>
                         </div>
                       </div>
 
-                      <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-gray-100">
+                      <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800">
                         <div
                           className={`h-full rounded-full transition-all duration-500 ${course.color}`}
                           style={{ width: `${percentage}%` }}
@@ -320,14 +318,14 @@ function StudentProgress() {
                       </div>
 
                       <div className="mt-2 flex items-center justify-between gap-2">
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-gray-400 dark:text-gray-500">
                           {isCompleted
                             ? "Kurs tugatilgan"
                             : "O‘rganish davom etmoqda"}
                         </span>
 
                         {isCompleted && (
-                          <span className="flex shrink-0 items-center gap-1 text-xs font-semibold text-green-600">
+                          <span className="flex shrink-0 items-center gap-1 text-xs font-semibold text-green-600 dark:text-green-400">
                             <CheckCircle2 size={14} />
                             Yakunlandi
                           </span>
@@ -340,18 +338,18 @@ function StudentProgress() {
             </div>
 
             {/* Weekly activity */}
-            <div className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 sm:p-6">
+            <div className="min-w-0 rounded-2xl border border-gray-100 bg-white p-5 sm:p-6 dark:border-gray-800 dark:bg-gray-900">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-lg font-bold text-gray-900">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">
                     Haftalik faollik
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     O‘qishga sarflangan vaqt
                   </p>
                 </div>
 
-                <CalendarDays className="shrink-0 text-green-600" size={21} />
+                <CalendarDays className="shrink-0 text-green-600 dark:text-green-400" size={21} />
               </div>
 
               <div className="mt-8 flex h-48 items-end justify-between gap-2">
@@ -360,7 +358,7 @@ function StudentProgress() {
                     key={day.day}
                     className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-2"
                   >
-                    <span className="text-xs font-medium text-gray-500">
+                    <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
                       {day.hours}s
                     </span>
 
@@ -369,7 +367,7 @@ function StudentProgress() {
                         className={`w-full rounded-t-lg ${
                           day.hours === 5
                             ? "bg-green-600"
-                            : "bg-green-300"
+                            : "bg-green-300 dark:bg-green-800"
                         }`}
                         style={{
                           height: `${(day.hours / 5) * 100}%`,
@@ -377,22 +375,22 @@ function StudentProgress() {
                       />
                     </div>
 
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-gray-400 dark:text-gray-500">
                       {day.day}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-7 rounded-xl bg-green-50 p-4">
+              <div className="mt-7 rounded-xl bg-green-50 p-4 dark:bg-green-950/30">
                 <div className="flex items-center gap-2">
                   <Flame size={20} className="text-orange-500" />
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-gray-900 dark:text-white">
                     {totalHours} soat
                   </span>
                 </div>
 
-                <p className="mt-2 text-xs leading-5 text-gray-500">
+                <p className="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
                   Oxirgi 7 kun ichida o‘qishga sarflagan vaqtingiz.
                 </p>
               </div>
@@ -400,17 +398,17 @@ function StudentProgress() {
           </section>
 
           {/* Recommendation */}
-          <section className="flex flex-col justify-between gap-5 rounded-2xl border border-green-100 bg-green-50 p-5 sm:flex-row sm:items-center sm:p-6">
+          <section className="flex flex-col justify-between gap-5 rounded-2xl border border-green-100 bg-green-50 p-5 dark:border-green-900/50 dark:bg-green-950/30 sm:flex-row sm:items-center sm:p-6">
             <div className="flex min-w-0 items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-green-600">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-green-600 dark:bg-gray-900 dark:text-green-400">
                 <Target size={24} />
               </div>
 
               <div className="min-w-0">
-                <h2 className="font-bold text-gray-900">
+                <h2 className="font-bold text-gray-900 dark:text-white">
                   Maqsadingiz sari davom eting!
                 </h2>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
+                <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">
                   Har kuni yangi bilim o‘rganing va natijalaringizni
                   yaxshilab boring.
                 </p>

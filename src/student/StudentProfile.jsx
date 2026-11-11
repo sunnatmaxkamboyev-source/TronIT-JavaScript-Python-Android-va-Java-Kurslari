@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Menu,
@@ -45,7 +44,6 @@ function StudentProfile() {
 
   const handleSave = (e) => {
     e.preventDefault();
-
     setProfile(formData);
     setIsEditing(false);
   };
@@ -55,8 +53,14 @@ function StudentProfile() {
     setIsEditing(false);
   };
 
+  const inputClass =
+    "w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-12 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:disabled:text-gray-400";
+
+  const labelClass =
+    "mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300";
+
   return (
-    <div className="min-h-screen w-full bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50 dark:bg-gray-950">
       <StudentSidebar
         isOpen={sidebarOpen}
         setIsOpen={setSidebarOpen}
@@ -65,27 +69,28 @@ function StudentProfile() {
       <main className="min-h-screen w-full min-w-0 lg:ml-72 lg:w-[calc(100%-18rem)]">
 
         {/* Header */}
-        <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-gray-100 bg-white px-5 md:px-8">
+        <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-gray-100 bg-white px-5 dark:border-gray-800 dark:bg-gray-900 md:px-8">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="rounded-lg p-2 hover:bg-gray-100 lg:hidden"
+              className="rounded-lg p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 lg:hidden"
               aria-label="Menyuni ochish"
             >
               <Menu size={23} />
             </button>
 
             <div>
-              <h1 className="text-xl font-bold text-gray-900 md:text-2xl">
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white md:text-2xl">
                 Profilim
               </h1>
-              <p className="mt-1 text-xs text-gray-500 md:text-sm">
+
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 md:text-sm">
                 Shaxsiy ma'lumotlaringizni boshqaring
               </p>
             </div>
           </div>
 
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 font-bold text-green-700">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 font-bold text-green-700 dark:bg-green-900/40 dark:text-green-400">
             {profile.name.charAt(0).toUpperCase()}
           </div>
         </header>
@@ -116,60 +121,60 @@ function StudentProfile() {
           <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
 
             {/* User card */}
-            <section className="h-fit rounded-2xl border border-gray-100 bg-white p-7">
+            <section className="h-fit rounded-2xl border border-gray-100 bg-white p-7 dark:border-gray-800 dark:bg-gray-900">
               <div className="flex flex-col items-center text-center">
                 <div className="relative">
-                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-green-100 text-4xl font-bold text-green-600">
+                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-green-100 text-4xl font-bold text-green-600 dark:bg-green-900/40 dark:text-green-400">
                     {profile.name.charAt(0).toUpperCase()}
                   </div>
 
-                  <div className="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-4 border-white bg-green-500 text-white">
+                  <div className="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-4 border-white bg-green-500 text-white dark:border-gray-900">
                     <Camera size={16} />
                   </div>
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold text-gray-900">
+                <h3 className="mt-5 text-xl font-bold text-gray-900 dark:text-white">
                   {profile.name}
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                   TronIT o'quvchisi
                 </p>
 
-                <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-xs font-semibold text-green-600">
+                <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-xs font-semibold text-green-600 dark:bg-green-900/30 dark:text-green-400">
                   <ShieldCheck size={15} />
                   Student account
                 </span>
               </div>
 
-              <div className="my-7 border-t border-gray-100" />
+              <div className="my-7 border-t border-gray-100 dark:border-gray-800" />
 
               <div className="space-y-5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-50 text-green-600 dark:bg-green-900/30 dark:text-green-400">
                     <BookOpen size={19} />
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
                       4 ta kurs
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
                       Faol kurslar
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
                     <CalendarDays size={19} />
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
                       2026
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
                       Ro'yxatdan o'tgan yil
                     </p>
                   </div>
@@ -178,14 +183,14 @@ function StudentProfile() {
             </section>
 
             {/* Profile form */}
-            <section className="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 xl:col-span-2">
+            <section className="rounded-2xl border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 md:p-8 xl:col-span-2">
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     Shaxsiy ma'lumotlar
                   </h3>
 
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                     Profilingiz haqidagi ma'lumotlar
                   </p>
                 </div>
@@ -204,7 +209,7 @@ function StudentProfile() {
 
                 {/* Name */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-gray-700">
+                  <label className={labelClass}>
                     To'liq ism
                   </label>
 
@@ -221,14 +226,14 @@ function StudentProfile() {
                       onChange={handleChange}
                       disabled={!isEditing}
                       required
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-12 pr-4 text-sm outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-gray-700">
+                  <label className={labelClass}>
                     Email manzil
                   </label>
 
@@ -245,14 +250,14 @@ function StudentProfile() {
                       onChange={handleChange}
                       disabled={!isEditing}
                       required
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-12 pr-4 text-sm outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-gray-700">
+                  <label className={labelClass}>
                     Telefon raqam
                   </label>
 
@@ -268,14 +273,14 @@ function StudentProfile() {
                       value={formData.phone}
                       onChange={handleChange}
                       disabled={!isEditing}
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-12 pr-4 text-sm outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 {/* Location */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-gray-700">
+                  <label className={labelClass}>
                     Manzil
                   </label>
 
@@ -291,14 +296,14 @@ function StudentProfile() {
                       value={formData.location}
                       onChange={handleChange}
                       disabled={!isEditing}
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-12 pr-4 text-sm outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 {/* Bio */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-gray-700">
+                  <label className={labelClass}>
                     O'zim haqimda
                   </label>
 
@@ -308,17 +313,17 @@ function StudentProfile() {
                     onChange={handleChange}
                     disabled={!isEditing}
                     rows={4}
-                    className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500"
+                    className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-900 outline-none transition focus:border-green-500 disabled:cursor-not-allowed disabled:text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:disabled:text-gray-400"
                   />
                 </div>
 
                 {/* Actions */}
                 {isEditing && (
-                  <div className="flex flex-col-reverse gap-3 border-t border-gray-100 pt-6 sm:flex-row sm:justify-end">
+                  <div className="flex flex-col-reverse gap-3 border-t border-gray-100 pt-6 dark:border-gray-800 sm:flex-row sm:justify-end">
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="rounded-xl border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"
+                      className="rounded-xl border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-600 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                     >
                       Bekor qilish
                     </button>
@@ -334,7 +339,6 @@ function StudentProfile() {
                 )}
               </form>
             </section>
-
           </div>
         </div>
       </main>
