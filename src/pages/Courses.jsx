@@ -27,45 +27,51 @@ function Courses() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50 transition-colors duration-300 dark:bg-gray-950">
+
         {/* Header */}
-        <section className="bg-white border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-6 py-16">
-            <p className="text-green-600 text-sm font-semibold mb-3">
+        <section className="border-b border-gray-100 bg-white transition-colors dark:border-gray-800 dark:bg-gray-900">
+          <div className="mx-auto max-w-7xl px-6 py-16">
+            <p className="mb-3 text-sm font-semibold text-green-600">
               TRONIT TA'LIM PLATFORMASI
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
               Barcha <span className="text-green-500">kurslar</span>
             </h1>
 
-            <p className="text-gray-500 mt-5 max-w-xl leading-7">
+            <p className="mt-5 max-w-xl leading-7 text-gray-500 dark:text-gray-400">
               O'zingizga mos IT yo'nalishini tanlang va yangi
               bilimlarni egallashni boshlang.
             </p>
 
-            <div className="flex flex-wrap gap-8 mt-8">
+            <div className="mt-8 flex flex-wrap gap-8">
               <div>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {courses.length}
                 </p>
-                <p className="text-sm text-gray-500">Ta kurs</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Ta kurs
+                </p>
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {courses.reduce((sum, course) => sum + course.lessons, 0)}
                 </p>
-                <p className="text-sm text-gray-500">Video dars</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Video dars
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Courses */}
-        <section className="max-w-7xl mx-auto px-6 py-14">
+        <section className="mx-auto max-w-7xl px-6 py-14">
+
           {/* Search and filter */}
-          <div className="flex flex-col md:flex-row gap-4 mb-10">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row">
             <div className="relative flex-1">
               <Search
                 size={20}
@@ -77,14 +83,14 @@ function Courses() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Kurs yoki muallifni qidiring..."
-                className="w-full bg-white border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 outline-none focus:border-green-500 transition"
+                className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-12 pr-4 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-green-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
 
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="bg-white border border-gray-200 rounded-xl px-5 py-3.5 outline-none focus:border-green-500 text-gray-700"
+              className="rounded-xl border border-gray-200 bg-white px-5 py-3.5 text-gray-700 outline-none focus:border-green-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200"
             >
               {courseCategories.map((category) => (
                 <option key={category} value={category}>
@@ -95,51 +101,57 @@ function Courses() {
           </div>
 
           {/* Results */}
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-gray-900">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
               Mavjud kurslar
             </h2>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               {filteredCourses.length} ta natija
             </p>
           </div>
 
           {filteredCourses.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filteredCourses.map((course) => (
                 <article
                   key={course.id}
-                  className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-green-300 hover:shadow-lg transition duration-300"
+                  className="rounded-2xl border border-gray-100 bg-white p-6 transition duration-300 hover:border-green-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-green-700"
                 >
-                  <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5">
-                    <BookOpen size={27} className="text-green-600" />
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-green-50 dark:bg-green-950/40">
+                    <BookOpen
+                      size={27}
+                      className="text-green-600 dark:text-green-400"
+                    />
                   </div>
 
-                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1.5 rounded-full">
+                  <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-semibold text-green-600 dark:bg-green-950/40 dark:text-green-400">
                     {course.category}
                   </span>
 
-                  <h3 className="text-xl font-bold text-gray-900 mt-5">
+                  <h3 className="mt-5 text-xl font-bold text-gray-900 dark:text-white">
                     {course.title}
                   </h3>
 
-                  <p className="text-sm text-gray-500 mt-2">
+                  <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                     Muallif: {course.author}
                   </p>
 
-                  <p className="text-sm text-gray-500 leading-6 mt-4 min-h-12">
+                  <p className="mt-4 min-h-12 text-sm leading-6 text-gray-500 dark:text-gray-400">
                     {course.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mt-5">
-                    <PlayCircle size={18} className="text-green-600" />
+                  <div className="mt-5 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <PlayCircle
+                      size={18}
+                      className="text-green-600 dark:text-green-400"
+                    />
                     {course.lessons} ta video dars
                   </div>
 
                   <Link
                     to={`/courses/${course.id}`}
-                    className="mt-6 flex items-center justify-center gap-2 w-full border border-green-500 text-green-600 hover:bg-green-500 hover:text-white py-3 rounded-xl font-semibold transition"
+                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border border-green-500 py-3 font-semibold text-green-600 transition hover:bg-green-500 hover:text-white dark:text-green-400"
                   >
                     Kursni ko'rish
                     <ArrowRight size={18} />
@@ -148,14 +160,17 @@ function Courses() {
               ))}
             </div>
           ) : (
-            <div className="bg-white rounded-2xl border border-gray-100 py-16 text-center">
-              <Search size={35} className="text-gray-300 mx-auto mb-4" />
+            <div className="rounded-2xl border border-gray-100 bg-white py-16 text-center dark:border-gray-800 dark:bg-gray-900">
+              <Search
+                size={35}
+                className="mx-auto mb-4 text-gray-300"
+              />
 
-              <h3 className="text-lg font-bold text-gray-800">
+              <h3 className="text-lg font-bold text-gray-800 dark:text-white">
                 Kurs topilmadi
               </h3>
 
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 Boshqa nom yoki kategoriyani sinab ko'ring.
               </p>
 
@@ -164,7 +179,7 @@ function Courses() {
                   setSearch("");
                   setSelectedCategory("Barcha kurslar");
                 }}
-                className="mt-5 text-green-600 font-semibold hover:text-green-700"
+                className="mt-5 font-semibold text-green-600 hover:text-green-700"
               >
                 Filtrlarni tozalash
               </button>

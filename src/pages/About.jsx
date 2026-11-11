@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -6,7 +7,6 @@ import {
   GraduationCap,
   MonitorPlay,
   Target,
-  Users,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
@@ -114,23 +114,31 @@ function About() {
                     <span className="about-code-purple">const</span>{" "}
                     <span className="about-code-blue">future</span> = {"{"}
                   </div>
+
                   <div className="about-code-indent">
                     <span className="about-code-green">skills</span>: [
                   </div>
+
                   <div className="about-code-indent-2">
                     "Programming",
                   </div>
+
                   <div className="about-code-indent-2">
                     "Technology",
                   </div>
+
                   <div className="about-code-indent-2">
                     "Creativity"
                   </div>
+
                   <div className="about-code-indent">],</div>
+
                   <div className="about-code-indent">
                     <span className="about-code-green">success</span>: true
                   </div>
+
                   <div>{"};"}</div>
+
                   <div className="about-code-bottom">
                     <span className="about-code-purple">console.log</span>
                     <span>(future);</span>
@@ -142,6 +150,7 @@ function About() {
                 <div className="about-floating-icon">
                   <Code2 size={21} />
                 </div>
+
                 <div>
                   <strong>Learn to code</strong>
                   <span>Build your future</span>
@@ -152,6 +161,7 @@ function About() {
                 <div className="about-floating-icon">
                   <GraduationCap size={22} />
                 </div>
+
                 <div>
                   <strong>TronIT</strong>
                   <span>Knowledge starts here</span>
@@ -178,6 +188,7 @@ function About() {
           <div className="about-container about-intro-grid">
             <div className="about-section-heading">
               <span className="about-label">BIZ HAQIMIZDA</span>
+
               <h2>
                 Texnologiyalar olamiga
                 <span> ochiq eshik.</span>
@@ -224,11 +235,15 @@ function About() {
                 const Icon = feature.icon;
 
                 return (
-                  <article className="about-feature-card" key={feature.number}>
+                  <article
+                    className="about-feature-card"
+                    key={feature.number}
+                  >
                     <div className="about-feature-top">
                       <div className="about-feature-icon">
                         <Icon size={23} />
                       </div>
+
                       <span>{feature.number}</span>
                     </div>
 
@@ -247,11 +262,13 @@ function About() {
             <div className="about-cta">
               <div className="about-cta-content">
                 <span>TRONIT BILAN BOSHLANG</span>
+
                 <h2>
                   Kelajagingiz
                   <br />
                   bugundan boshlanadi.
                 </h2>
+
                 <p>
                   O'zingizga mos kursni tanlang va yangi bilimlar
                   sari ilk qadamingizni qo'ying.
@@ -269,6 +286,7 @@ function About() {
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />

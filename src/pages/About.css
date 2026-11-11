@@ -671,3 +671,92 @@
     padding: 10px;
   }
 }
+
+
+
+
+
+/* DARK MODE */
+
+.dark .about-page {
+  background: #030712;
+  color: #f9fafb;
+}
+
+.dark .about-hero {
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(34, 197, 94, 0.12),
+      transparent 30%
+    ),
+    #111827;
+}
+
+.dark .about-hero-content > p,
+.dark .about-hero-note,
+.dark .about-intro-text p,
+.dark .about-features-heading > p,
+.dark .about-feature-card p {
+  color: #9ca3af;
+}
+
+.dark .about-visual-glow {
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.dark .about-floating-card {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.dark .about-floating-icon,
+.dark .about-feature-icon {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.dark .about-statistics {
+  background: #111827;
+  border-color: #1f2937;
+}
+
+.dark .about-stat-item {
+  border-color: #374151;
+}
+
+.dark .about-stat-item span {
+  color: #9ca3af;
+}
+
+.dark .about-intro {
+  background: #030712;
+}
+
+.dark .about-features {
+  background: #111827;
+  border-color: #1f2937;
+}
+
+.dark .about-feature-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .about-feature-card:hover {
+  border-color: #22c55e;
+}
+
+.dark .about-feature-top > span {
+  color: #64748b;
+}
+
+.dark .about-cta {
+  background: #020617;
+}
+
+.dark .about-cta-decoration {
+  color: rgba(255, 255, 255, 0.04);
+}
+
