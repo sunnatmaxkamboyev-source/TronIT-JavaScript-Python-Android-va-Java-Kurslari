@@ -5,11 +5,12 @@ import { useState } from "react";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Bosh sahifa", path: "/" },
-    { name: "Kurslar", path: "/courses" },
-    { name: "Biz haqimizda", path: "/about" },
-  ];
+const navLinks = [
+  { name: "Bosh sahifa", path: "/" },
+  { name: "Kurslar", path: "/courses" },
+  { name: "Biz haqimizda", path: "/about" },
+  { name: "Bog'lanish", path: "/contact" },
+];
 
   return (
     <header className="w-full bg-white border-b border-gray-100">
