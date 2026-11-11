@@ -8,9 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
-
-
-
+import StudentDashboard from "./student/StudentDashboard";
 
 
 
@@ -41,6 +39,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
